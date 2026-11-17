@@ -39,12 +39,20 @@ Builds a full OPDB drill design from a boundary, a row-orientation line and a si
 | `fix_markers.cs` | Repairs markers after a bad clean-up (OPDB keeps deleted markers) |
 | `run_script.ps1` | Sends a script with `_common.cs` and CONFIG overrides to the plugin pipe |
 
+## LHS haulage model
+Scripts used when calibrating LHS truck hours (see `lhs-haulage.md` for the full method).
+
+| File | What |
+|---|---|
+| `lhs_trim_dump_blocks_to_surface.cs` | Trims dump blocks to a flyover surface (keeps the space still above it), in place with all attributes, in batches, with a dry-run mode. Cuts against a local surface patch so large drone surfaces don't freeze Deswik |
+| `lhs_check_slots.cs` | Read-only check of mining slots before a run: blocks without a slot, Route Quality counts (drop-down `Closest Block Fallback`), slots not starting on a haul-road vertex, exit points |
+
 ## Knowledge notes
 | File | What |
 |---|---|
 | `deswik-cad-run-csharp.md` | Scripting Deswik CAD through `run_csharp`: core API, pitfalls (C# 5, backslashes, deleted figures, cached dialogs), reflection recipe |
 | `interactive-scheduler.md` | IS resource-path API, Report Options totaled-field expressions, monthly fleet-hour limits |
-| `lhs-haulage.md` | LHS truck files, result fields, fitting cycle times, scenario window (destination overrides / mapping), string-network haul distances |
+| `lhs-haulage.md` | LHS truck files, result fields, fitting cycle times, scenario window, **calibrating truck hours against a contractor**, Dynamic Slot Connectors (covering / supporting stage, route quality, surface roads), dump blocks (flyover trims, destination type, dependencies), dump slots, destination overrides that work, checking a run from the process log and scenario DB, string-network haul distances |
 | `opdb-drill-design.md` | OPDB API: patterns, templates, headless hole-creation routines, markers / row lines, socket markers, coverage |
 | `drill-report-review.md` | Filling a probe-drilling review workbook from a drill report export |
 
